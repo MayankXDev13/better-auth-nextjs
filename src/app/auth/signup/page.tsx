@@ -39,6 +39,14 @@ function SignUp() {
     console.log(`data ${data?.user}`);
     console.log(`err ${error?.message}`);
   };
+
+  const handleGoogleSignUp = async () => {
+    const data = await authClient.signIn.social({
+      provider: "google",
+    });
+
+    console.log(`data ${data}`);
+  };
   return (
     <div className="min-h-screen flex items-center justify-center bg-black text-white">
       <form
@@ -77,6 +85,9 @@ function SignUp() {
         >
           Sign Up
         </button>
+
+        <h1>OR</h1>
+        <button onClick={handleGoogleSignUp}>SignUp with Google</button>
       </form>
     </div>
   );
